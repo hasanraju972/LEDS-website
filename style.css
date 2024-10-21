@@ -10,7 +10,7 @@ body {
     grid-template-areas: /* Defines areas for header, sidebar, main content, and footer */
       "header header header header header"
       "sidebar main main main main"
-      "sidebar footer footer footer footer";
+      "footer footer footer footer footer";
     grid-template-rows: auto 1fr auto; /* Row heights: automatic for header/footer, flexible for main */
     grid-template-columns: 1fr 4fr; /* Sidebar takes 1 part width, main content takes 4 parts */
     font-family: Arial, sans-serif; /* Sets the font family for the entire page */
@@ -171,15 +171,100 @@ body {
 .footer a:hover {
     text-decoration: underline; /* Adds underline when links are hovered over */
 }
+
+.footer-container {
+    display: flex; /* Uses flexbox layout for the footer container */
+    flex-wrap: wrap; /* Ensures child elements wrap onto multiple lines if needed */
+    justify-content: space-between; /* Spaces out child elements evenly across the width */
+}
+
+.footer div {
+    flex: 1; /* Ensures all child divs inside the footer take equal space */
+    margin: 1rem; /* Adds 1rem of margin around the child divs */
+}
+
+.footer-about, .footer-quick-links, .footer-contact, .footer-newsletter {
+    margin-bottom: 1.5rem; /* Adds space below each section in the footer */
+}
+
+.footer h3 {
+    color: #fff; /* Sets the heading color to white */
+    margin-bottom: 0.75rem; /* Adds space below the heading */
+}
+
+.footer p, .footer li {
+    font-size: 0.9rem; /* Sets the font size for paragraphs and list items to 0.9rem */
+    color: #ffffff; /* Sets the text color to white */
+}
+
+.footer a {
+    color: #ffffff; /* Makes all footer links white */
+    text-decoration: none; /* Removes the underline from links */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Adds underline when the link is hovered */
+}
+
+.footer-quick-links ul {
+    list-style-type: none; /* Removes bullet points from the list */
+    padding: 0; /* Removes padding from the list */
+}
+
+.footer-quick-links li {
+    margin: 0.5rem 0; /* Adds vertical spacing between each list item */
+}
+
+.footer-social-icons a {
+    font-size: 1.5rem; /* Increases the size of the social media icons */
+    margin-right: 1rem; /* Adds space between each icon */
+    color: rgb(255, 255, 255); /* Sets the icon color to white */
+}
+
+.footer-newsletter form {
+    display: flex; /* Applies flexbox layout to the newsletter form */
+    flex-direction: column; /* Stacks the input and button vertically */
+}
+
+.footer-newsletter input {
+    padding: 0.5rem; /* Adds padding inside the input field */
+    border: none; /* Removes the default border */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; /* Adds space below the input */
+    border-radius: 4px; /* Rounds the corners of the input field */
+}
+
+.footer-newsletter button {
+    padding: 0.5rem 1rem; /* Adds padding inside the button (top/bottom 0.5rem, left/right 1rem) */
+    background-color: #004d40; /* Sets a dark green background for the button */
+    color: white; /* Makes the button text white */
+    border: none; /* Removes any border */
+    cursor: pointer; /* Changes the mouse cursor to a pointer when hovering over the button */
+    border-radius: 4px; /* Rounds the corners of the button */
+}
+
+.footer-newsletter button:hover {
+    background-color: #002f2b; /* Changes the button's background to a darker green when hovered */
+}
+
+.footer-legal {
+    text-align: center; /* Centers the legal section text */
+    margin-top: 1rem; /* Adds space above the legal section */
+}
+
+.footer-legal p {
+    font-size: 0.8rem; /* Sets a smaller font size for the legal text */
+}
   
 @media (max-width: 768px) {
     body {
-      grid-template-columns: 1fr; /* Changes layout to one column */
+      grid-template-columns: 1fr; /* Changes the layout to a single column on small screens */
       grid-template-areas:
         "header"
         "main"
         "sidebar"
-        "footer"; /* Reorganizes the areas for smaller screens */
+        "footer"; /* Reorganizes grid areas for smaller screens to a vertical layout */
     }
 }
+
 
