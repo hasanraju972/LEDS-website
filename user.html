@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEDS Member Portal</title>
+    <link rel="stylesheet" href="style.css"> <!-- Existing styles for consistency -->
+    <link rel="stylesheet" href="user-style.css"> <!-- Separate styles for user.html -->
+    <script src="script.js" defer></script>
+</head>
+<body class="user-page">
+
+    <div class="container">
+        <h1>LEDS Member Portal</h1>
+
+        <!-- Toggle Buttons for Login and Registration -->
+        <div class="toggle-buttons">
+            <button id="login-toggle" onclick="showLoginForm()">Login</button>
+            <button onclick="showRegistrationForm()">Register</button>
+        </div>
+
+        <!-- Login Form (initially visible) -->
+        <div id="login-form" class="form-section">
+            <h2>Login</h2>
+            <form onsubmit="return handleLogin(event)">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" onclick="showForgotPasswordForm()">Forgot Password?</a>
+            </form>
+        </div>
+
+        <!-- Forgot Password Form (hidden by default) -->
+        <div id="forgot-password-form" class="form-section" style="display: none;">
+            <h2>Forgot Password</h2>
+            <form onsubmit="return handleForgotPassword(event)">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Send Reset Link</button>
+            </form>
+            <button onclick="showLoginForm()">Back to Login</button>
+        </div>
+
+        <!-- Registration Form (hidden by default) -->
+        <div id="registration-form" class="form-section" style="display: none;">
+            <h2>Member Registration</h2>
+            <form onsubmit="return handleRegistration(event)">
+                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Father's Name" required>
+                <input type="text" placeholder="Mother's Name" required>
+                <input type="text" placeholder="NID Number/Birth Certificate Number" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="text" placeholder="Address" required>
+                <select required>
+                    <option value="">Select Membership Type</option>
+                    <option value="general">General Member</option>
+                    <option value="premium">Premium Member</option>
+                </select>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- User Information Section with Profile Picture (shown after successful login) -->
+        <div id="user-info-section" class="form-section" style="display: none;">
+            <img id="profile-picture" src="C:\Users\hasan\OneDrive\Desktop\Onedrive1\Pictures\Camera\hhh.jpg" alt="Profile Picture" class="profile-picture">
+            <h2>Your Information</h2>
+            <form onsubmit="return handleUpdateInfo(event)">
+                <input type="text" id="user-fullname" placeholder="Full Name" required>
+                <input type="text" id="user-fathername" placeholder="Father's Name" required>
+                <input type="text" id="user-mothername" placeholder="Mother's Name" required>
+                <input type="text" id="user-nid" placeholder="NID Number/Birth Certificate Number" required>
+                <input type="email" id="user-email" placeholder="Email" required>
+                <input type="tel" id="user-phone" placeholder="Phone Number" required>
+                <input type="text" id="user-address" placeholder="Address" required>
+                
+                <!-- Profile Picture Update Option -->
+                <label for="profile-picture-upload">Update Profile Picture</label>
+                <input type="file" id="profile-picture-upload" accept="image/*" onchange="updateProfilePicture(event)">
+                
+                <button type="submit">Update Information</button>
+            </form>
+        </div>
+
+        <!-- Report Generation Section (shown after successful login) -->
+        <div id="report-section" class="form-section" style="display: none;">
+            <h2>Generate Report</h2>
+            <form>
+                <label for="report-type">Select Report Type:</label>
+                <select id="report-type" required>
+                    <option value="deposit-history">Deposit History</option>
+                    <option value="investment-overview">Investment Overview</option>
+                    <option value="client-summary">Client Summary</option>
+                </select>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" required>
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" required>
+                <button type="submit">Generate Report</button>
+            </form>
+        </div>
+    </div>
+
+   
+</body>
+</html>
